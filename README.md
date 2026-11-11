@@ -120,6 +120,24 @@ Start a new Codex session afterwards so the skill is loaded.
 
 Already have the skill? Run the install command again; the install name did not change. Looking for one of the older skills? See [Moved skills](#moved-skills).
 
+## web-design-power: one skill for the whole UX job
+
+`skills/web-design-power` bundles five skills as internal modules behind one router, so it shows up
+as a single skill with no sub-skills: impeccable (UX planning, critique, audit, design systems,
+20+ refine commands), tasteskill (websites from a brief, with the finish gate), unslop (fixing
+AI-looking UI), design-extract (design tokens from any URL) and playwright-cli (browser testing and
+screenshots). Its `SKILL.md` routes each request to the right module and adds a UX pipeline that
+runs shape, direction, build, hardening, a browser walk-through, critique, audit and DESIGN.md in
+order.
+
+```bash
+cp -r skills/web-design-power ~/.claude/skills/   # or ./install.sh web-design-power
+```
+
+Then type `/web-design-power` for the menu, or `/web-design-power ux <feature>`. Rebuild it from
+the five source checkouts with `tools/build-web-design-power.sh <folder holding them>`. Credits
+and licences: `skills/web-design-power/NOTICE.md`.
+
 ## How 2.5 works
 
 Use it by asking your agent to build or redesign a company site; the agent loads the skill, copies `assets/` into the project, starts from `assets/starter.html` and runs the checker before it hands the page over. Every build starts by classifying the client's business (`software`, `gaming`, `tech`, `product`, `service` or `place`) and planning the page screen by screen before writing markup:
